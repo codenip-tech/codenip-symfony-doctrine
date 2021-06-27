@@ -13,4 +13,5 @@
 .DS_Store
 .vscode
 docker-compose.yml
+.php_cs.cache
 ###< Other files and folders ###
