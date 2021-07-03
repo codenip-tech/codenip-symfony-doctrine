@@ -2,24 +2,29 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Uid\Uuid;
+
 class User
 {
-    private int $id;
-
+    private string $id;
     private string $name;
+    private string $email;
+    private \DateTime $createdOn;
 
-    public function __construct(string $name)
+    public function __construct(string $name, string $email)
     {
-        $this->id = 1;
+        $this->id = Uuid::v4()->toRfc4122();
         $this->name = $name;
+        $this->email = $email;
+        $this->createdOn = new \DateTime();
     }
 
-    public function getId(): ?int
+    public function getId(): string
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -27,5 +32,15 @@ class User
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function getCreatedOn(): \DateTime
+    {
+        return $this->createdOn;
     }
 }

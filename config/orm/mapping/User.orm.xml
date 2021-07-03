@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
     <entity name="App\Entity\User">
-        <id name="id" type="integer">
-            <generator />
-        </id>
-        <field name="name" length="20" />
+        <id name="id" type="string" column-definition="CHAR(36) NOT NULL" />
+
+        <field name="name" length="20"/>
+        <field name="email" length="100" />
+        <field name="createdOn" type="datetime" />
+
+        <unique-constraints>
+            <unique-constraint name="U_email_user" columns="email"/>
+        </unique-constraints>
+
+        <indexes>
+            <index name="IDX_name_user" columns="name"/>
+        </indexes>
     </entity>
 </doctrine-mapping>
