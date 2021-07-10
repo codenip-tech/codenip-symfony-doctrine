@@ -10,6 +10,7 @@ class User
     private string $name;
     private string $email;
     private \DateTime $createdOn;
+    private \DateTime $updatedOn;
 
     public function __construct(string $name, string $email)
     {
@@ -17,6 +18,7 @@ class User
         $this->name = $name;
         $this->email = $email;
         $this->createdOn = new \DateTime();
+        $this->markAsUpdated();
     }
 
     public function getId(): string
@@ -42,5 +44,15 @@ class User
     public function getCreatedOn(): \DateTime
     {
         return $this->createdOn;
+    }
+
+    public function getUpdatedOn(): \DateTime
+    {
+        return $this->updatedOn;
+    }
+
+    public function markAsUpdated(): void
+    {
+        $this->updatedOn = new \DateTime();
     }
 }

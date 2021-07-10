@@ -1,3 +1,13 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+app.user.create:
+  path: /api/users
+  controller: App\Controller\CreateUserAction
+  methods: [ POST ]
+
+app.user.update:
+  path: /api/users/{id}
+  controller: App\Controller\UpdateUserAction
+  methods: [ PUT ]

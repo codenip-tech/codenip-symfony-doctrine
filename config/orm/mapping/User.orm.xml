@@ -6,6 +6,7 @@
         <field name="name" length="20"/>
         <field name="email" length="100" />
         <field name="createdOn" type="datetime" />
+        <field name="updatedOn" type="datetime" />
 
         <unique-constraints>
             <unique-constraint name="U_email_user" columns="email"/>
@@ -14,5 +15,9 @@
         <indexes>
             <index name="IDX_name_user" columns="name"/>
         </indexes>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="preUpdate" method="markAsUpdated"/>
+        </lifecycle-callbacks>
     </entity>
 </doctrine-mapping>
