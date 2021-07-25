@@ -15,7 +15,7 @@ class UpdateUserService
 
     public function __invoke(string $id, string $name): User
     {
-        if (null !== $user = $this->doctrineUserRepository->findOneByIdWithPlainSQL($id)) {
+        if (null !== $user = $this->doctrineUserRepository->findOneById($id)) {
             $user->setName($name);
 
             $this->doctrineUserRepository->save($user);
