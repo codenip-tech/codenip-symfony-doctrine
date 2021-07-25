@@ -1,13 +1,21 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-
+# User routes
 app.user.create:
   path: /api/users
-  controller: App\Controller\CreateUserAction
+  controller: App\Controller\User\CreateUserAction
   methods: [ POST ]
 
 app.user.update:
   path: /api/users/{id}
-  controller: App\Controller\UpdateUserAction
+  controller: App\Controller\User\UpdateUserAction
   methods: [ PUT ]
+
+app.user.get:
+  path: /api/users/{id}
+  controller: App\Controller\User\GetUserByIdAction
+  methods: [ GET ]
+
+# Profile routes
+app.profile.get:
+  path: /api/profiles/{id}
+  controller: App\Controller\Profile\GetProfileByIdAction
+  methods: [ GET ]

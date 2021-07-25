@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Service\User;
 
 use App\Entity\User;
 use App\Repository\DoctrineUserRepository;

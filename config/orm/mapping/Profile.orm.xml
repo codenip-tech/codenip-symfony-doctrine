@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Entity\Profile" table="profile">
+        <id name="id" type="string"  column-definition="CHAR(36) NOT NULL" />
+
+        <field name="pictureUrl" length="250" nullable="true" />
+
+        <one-to-one field="user" target-entity="App\Entity\User" inversed-by="profile" />
+
+        <unique-constraints>
+            <unique-constraint name="U_profile_user_id" columns="user_id" />
+        </unique-constraints>
+    </entity>
+</doctrine-mapping>

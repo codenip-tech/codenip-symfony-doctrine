@@ -16,6 +16,12 @@
             <index name="IDX_name_user" columns="name"/>
         </indexes>
 
+        <one-to-one field="profile" target-entity="App\Entity\Profile" mapped-by="user">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+        </one-to-one>
+
         <lifecycle-callbacks>
             <lifecycle-callback type="preUpdate" method="markAsUpdated"/>
         </lifecycle-callbacks>
