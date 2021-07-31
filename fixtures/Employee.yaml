@@ -1,0 +1,8 @@
+App\Entity\Employee:
+  Employee-0:
+    __construct:
+      name: Peter
+  Employee-1:
+    __construct:
+      name: Brian
+    manager: '@Employee-0'
