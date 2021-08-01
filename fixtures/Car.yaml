@@ -1,0 +1,11 @@
+App\Entity\Car:
+  Car-0:
+    __construct:
+      brand: Mercedes
+      model: C
+      owner: '@Employee-0'
+  Car-1:
+    __construct:
+      brand: Ford
+      model: Fiesta
+      owner: '@Employee-1'
