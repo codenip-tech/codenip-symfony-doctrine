@@ -14,6 +14,7 @@
 
         <indexes>
             <index name="IDX_name_user" columns="name"/>
+            <index name="IDX_country_id" columns="country_id" />
         </indexes>
 
         <one-to-one field="profile" target-entity="App\Entity\Profile" mapped-by="user">
@@ -21,6 +22,8 @@
                 <cascade-persist />
             </cascade>
         </one-to-one>
+
+        <many-to-one field="country" target-entity="App\Entity\Country" />
 
         <lifecycle-callbacks>
             <lifecycle-callback type="preUpdate" method="markAsUpdated"/>

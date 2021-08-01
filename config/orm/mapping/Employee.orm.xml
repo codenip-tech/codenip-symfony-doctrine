@@ -8,7 +8,7 @@
         <one-to-one field="manager" target-entity="App\Entity\Employee" />
 
         <unique-constraints>
-            <unique-constraint name="U_employee_manager_id" columns="manager" />
+            <unique-constraint name="U_employee_manager_id" columns="manager_id" />
         </unique-constraints>
     </entity>
 </doctrine-mapping>

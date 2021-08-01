@@ -1,0 +1,16 @@
+App\Entity\User:
+  User-0:
+    __construct:
+      name: Peter
+      email: peter@api.com
+    country: '@Country-0'
+  User-1:
+    __construct:
+      name: Brian
+      email: brian@api.com
+    country: '@Country-0'
+  User-2:
+    __construct:
+      name: Roger
+      email: roger@api.com
+    country: '@Country-1'

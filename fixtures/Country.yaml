@@ -1,0 +1,7 @@
+App\Entity\Country:
+  Country-0:
+    __construct:
+      name: Spain
+  Country-1:
+    __construct:
+      name: Germany

@@ -4,8 +4,8 @@ namespace App\Controller\Employee;
 
 use App\Controller\ApiController;
 use App\Entity\Employee;
+use App\Http\Response\ApiResponse;
 use App\Service\Employee\GetEmployeesService;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GetEmployeesAction extends ApiController
 {
@@ -13,7 +13,7 @@ class GetEmployeesAction extends ApiController
     {
     }
 
-    public function __invoke(): JsonResponse
+    public function __invoke(): ApiResponse
     {
         $employees = $this->getEmployeesService->__invoke();
 
