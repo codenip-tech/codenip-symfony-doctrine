@@ -26,6 +26,10 @@ class User
 
     private Collection $cards;
 
+    private Collection $friendsWithMe;
+
+    private Collection $myFriends;
+
     public function __construct(string $name, string $email)
     {
         $this->id = Uuid::v4()->toRfc4122();
@@ -37,6 +41,8 @@ class User
         $this->country = null;
         $this->phones = new ArrayCollection();
         $this->cards = new ArrayCollection();
+        $this->friendsWithMe = new ArrayCollection();
+        $this->myFriends = new ArrayCollection();
     }
 
     public function getId(): string
@@ -132,6 +138,50 @@ class User
         }
     }
 
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getFriendsWithMe(): ArrayCollection | Collection
+    {
+        return $this->friendsWithMe;
+    }
+
+    public function addFriendWithMe(User $friendWithMe): void
+    {
+        if (!$this->friendsWithMe->contains($friendWithMe)) {
+            $this->friendsWithMe->add($friendWithMe);
+        }
+    }
+
+    public function removeFriendWithMe(User $friendWithMe): void
+    {
+        if ($this->friendsWithMe->contains($friendWithMe)) {
+            $this->friendsWithMe->removeElement($friendWithMe);
+        }
+    }
+
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getMyFriends(): ArrayCollection | Collection
+    {
+        return $this->myFriends;
+    }
+
+    public function addMyFriend(User $friend): void
+    {
+        if (!$this->myFriends->contains($friend)) {
+            $this->myFriends->add($friend);
+        }
+    }
+
+    public function removeMyFriend(User $friend): void
+    {
+        if ($this->myFriends->contains($friend)) {
+            $this->myFriends->removeElement($friend);
+        }
+    }
+
     public function toArray(): array
     {
         return [
@@ -148,6 +198,20 @@ class User
             'cards' => array_map(function (Card $card): array {
                 return $card->toArray();
             }, $this->cards->toArray()),
+            'friends' => array_map(function (User $user): array {
+                return [
+                    'type' => 'my friends',
+                    'id' => $user->getId(),
+                    'name' => $user->getName(),
+                ];
+            }, $this->myFriends->toArray()),
+            'friendsWithMe' => array_map(function (User $user): array {
+                return [
+                    'type' => 'friends with me',
+                    'id' => $user->getId(),
+                    'name' => $user->getName(),
+                ];
+            }, $this->friendsWithMe->toArray()),
         ];
     }
 }

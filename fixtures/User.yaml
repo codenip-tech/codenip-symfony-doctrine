@@ -6,6 +6,7 @@ App\Entity\User:
     country: '@Country-0'
     phones: ['@Phone-0']
     cards: ['@Card-0', '@Card-1']
+    myFriends: ['@User-1', '@User-2']
   User-1:
     __construct:
       name: Brian

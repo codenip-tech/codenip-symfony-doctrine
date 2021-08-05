@@ -29,7 +29,7 @@ class Card
         return $this->value;
     }
 
-    public function getUsers(): ArrayCollection|Collection
+    public function getUsers(): ArrayCollection | Collection
     {
         return $this->users;
     }
@@ -44,7 +44,7 @@ class Card
                     'id' => $user->getId(),
                     'name' => $user->getName(),
                 ];
-            }, $this->users->toArray())
+            }, $this->users->toArray()),
         ];
     }
 }
