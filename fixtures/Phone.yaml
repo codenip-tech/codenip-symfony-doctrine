@@ -1,0 +1,7 @@
+App\Entity\Phone:
+  Phone-0:
+    __construct:
+      number: '900111222'
+  Phone-1:
+    __construct:
+      number: '900222333'

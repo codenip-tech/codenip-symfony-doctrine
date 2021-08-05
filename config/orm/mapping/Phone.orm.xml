@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Entity\Phone" table="phone">
+        <id name="id" type="string" column-definition="CHAR(36) NOT NULL" />
+
+        <field name="number" length="20" />
+    </entity>
+</doctrine-mapping>

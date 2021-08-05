@@ -4,11 +4,15 @@ App\Entity\User:
       name: Peter
       email: peter@api.com
     country: '@Country-0'
+    phones: ['@Phone-0']
+    cards: ['@Card-0', '@Card-1']
   User-1:
     __construct:
       name: Brian
       email: brian@api.com
     country: '@Country-0'
+    phones: ['@Phone-1']
+    cards: ['@Card-1']
   User-2:
     __construct:
       name: Roger

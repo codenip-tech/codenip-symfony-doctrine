@@ -1,0 +1,7 @@
+App\Entity\Card:
+  Card-0:
+    __construct:
+      value: '1234-5678-9012-1234'
+  Card-1:
+    __construct:
+      value: '2222-5678-3333-1234'
