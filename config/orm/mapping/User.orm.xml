@@ -36,7 +36,7 @@
             </join-table>
         </many-to-many>
 
-        <many-to-many field="cards" target-entity="App\Entity\Card">
+        <many-to-many field="cards" target-entity="App\Entity\Card" inversed-by="users">
             <join-table name="user_card">
                 <join-columns>
                     <join-column name="user_id"/>

@@ -4,5 +4,7 @@
         <id name="id" type="string" column-definition="CHAR(36) NOT NULL" />
 
         <field name="value" length="24" />
+
+        <many-to-many field="users" target-entity="App\Entity\User" mapped-by="cards" />
     </entity>
 </doctrine-mapping>
