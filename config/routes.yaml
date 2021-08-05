@@ -4,6 +4,11 @@ app.user.create:
   controller: App\Controller\User\CreateUserAction
   methods: [ POST ]
 
+app.users.update.all:
+  path: /api/users/update-all
+  controller: App\Controller\User\UpdateUserScoreAction
+  methods: [ POST ]
+
 app.user.update:
   path: /api/users/{id}
   controller: App\Controller\User\UpdateUserAction
@@ -25,3 +30,8 @@ app.employee.get:
   path: /api/employees
   controller: App\Controller\Employee\GetEmployeesAction
   methods: [ GET ]
+
+app.employee.create:
+  path: /api/employees
+  controller: App\Controller\Employee\CreateEmployeeAction
+  methods: [ POST ]

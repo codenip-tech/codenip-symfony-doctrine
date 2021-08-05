@@ -19,3 +19,8 @@ App\Entity\User:
       name: Roger
       email: roger@api.com
     country: '@Country-1'
+  User-{3..1000}:
+    __construct:
+      name: <word()>
+      email: '<current()>\@api.com'
+    country: '@Country-0'

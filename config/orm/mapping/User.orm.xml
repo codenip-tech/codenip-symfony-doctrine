@@ -7,6 +7,7 @@
         <field name="email" length="100" />
         <field name="createdOn" type="datetime" />
         <field name="updatedOn" type="datetime" />
+        <field name="score" type="integer" />
 
         <unique-constraints>
             <unique-constraint name="U_email_user" columns="email"/>

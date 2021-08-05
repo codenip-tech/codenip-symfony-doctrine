@@ -14,6 +14,33 @@ class DoctrineUserRepository extends DoctrineBaseRepository
         return User::class;
     }
 
+    /**
+     * @return User[]
+     */
+    public function all(): array
+    {
+        return $this->objectRepository->findAll();
+    }
+
+    public function updateAllWithIterable()
+    {
+        $batchSize = 100;
+        $i = 1;
+
+        $query = $this->getEntityManager()->createQuery('SELECT u FROM App\Entity\User u');
+
+        foreach ($query->toIterable() as $user) {
+            $user->updateScore();
+
+            ++$i;
+            if (($i % $batchSize) === 0) {
+                $this->getEntityManager()->flush(); // Executes all updates.
+                $this->getEntityManager()->clear(); // Detaches all objects from Doctrine!
+            }
+        }
+        $this->getEntityManager()->flush();
+    }
+
     public function findOneById(string $id): ?User
     {
         return $this->objectRepository->find($id);
